@@ -415,9 +415,30 @@ const map = new Map({
 });
 ```
 
-The import './style.css'; line might be a bit unexpected. In this example, we're using Vite as a development server. Vite allows CSS to be imported from JavaScript modules. If you were using a different development server, you might include the style.css in a <link> tag in the index.html instead.
+The import './style.css'; line might be a bit unexpected. In this example, we're using Vite as a development server. Vite allows CSS to be imported from JavaScript modules. If you were using a different development server, you might include the style.css in a `<link>` tag in the index.html instead.
 
-import './style.css'; 这行可能有点出乎意料。在此示例中，我们使用 Vite 作为开发服务器。**Vite 允许从 JavaScript 模块导入 CSS。**如果您使用的是其他开发服务器，则可以改为将 style.css 包含在 index.html 中的 <link> 标记中。
+import './style.css'; 这行可能有点出乎意料。在此示例中，我们使用 Vite 作为开发服务器。**Vite 允许从 JavaScript 模块导入 CSS。**如果您使用的是其他开发服务器，则可以改为将 style.css 包含在 index.html 中的 `<link>` 标记中。
+
+### 为什么main.js要放在div的后面？
+
+```js
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quick Start</title>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
+```
+
+The two important parts in the markup are the `<div>` element to contain the map and the `<script>` tag to pull in the JavaScript. The map container or target should be a block level element (like a `<div>`) and it must appear in the document before the `<script>` tag that initializes the map.
+
+标记中的两个重要部分是用于包含地图的 `<div>` 元素和用于引入 JavaScript 的 `<script>` 标记。地图容器或目标应为块级元素（如 `<div>`），并且它必须出现在文档中用于初始化地图的 `<script>` 标记之前。
 
 ### 什么是 “re-exported”？
 
